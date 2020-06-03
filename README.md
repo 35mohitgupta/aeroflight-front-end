@@ -7,3 +7,4 @@ Dependencies to be installed.
 3. axios
 4. redux
 5. react-redux
+6. redux-thunk
