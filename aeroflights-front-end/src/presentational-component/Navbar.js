@@ -18,22 +18,13 @@ function Navbar({leftNavLink, rightNavLink}) {
                                    <a className='nav-link' href={links.link}>{links.linkName}</a>
                             </li>
                             )}
-                            {/* <li className="nav-item">
-                                <a className="nav-link" href="#">View Requests</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">View Requests</a>
-                            </li> */}
                         </ul>
                         <ul className="navbar-nav ml-auto">
                             {rightNavLink!==[] && rightNavLink.map( (links,index) => 
                                 <li key={index} className="nav-item">
                                     <a className='nav-link' href={links.link}>{links.linkName}</a>
                                 </li>
-                                )}
-
-                            {/* <li className="nav-item"> <a className="nav-link" href="#">Profile</a></li>
-                            <li className="nav-item"> <a className="nav-link" href="#">Logout</a></li> */}
+                            )}
                         </ul>
                     </div>
                 </nav>
