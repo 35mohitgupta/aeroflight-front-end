@@ -1,4 +1,8 @@
 import {combineReducers} from 'redux'
 import {loginReducer} from './loginReducer'
-// const rootReducer = combineReducers()
-export const rootReducer = loginReducer
+import { requestReducer } from './requestReducer'
+
+export const rootReducer = combineReducers({
+    loginStatus: loginReducer,
+    requests: requestReducer
+})

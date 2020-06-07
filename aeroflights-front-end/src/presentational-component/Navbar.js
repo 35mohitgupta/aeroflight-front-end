@@ -1,12 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import { navBarSelector } from '../selectors/navbarSelector.js'
 
 function Navbar({leftNavLink, rightNavLink}) {
     console.log(leftNavLink,rightNavLink)
     return (
         <div className="row">
             <div className="col-md-12">
-                <nav className="navbar navbar-expand-md bg-dark navbar-dark">
+                <nav className="navbar navbar-expand-md bg-info navbar-dark">
                     <a className="navbar-brand" href="/home">AeroFlights</a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse">
                         <span className="navbar-toggler-icon"></span>
@@ -34,40 +35,7 @@ function Navbar({leftNavLink, rightNavLink}) {
 }
 
 const mapStateToProps = (store) => {
-    const isUserLoggedIn= store.isUserLoggedIn
-    const isAdmin= store.isAdmin
-    let leftNavLink = []
-    let rightNavLink = []
-    if(isUserLoggedIn === false){
-        leftNavLink  = []
-        rightNavLink = [
-            { link:'/login', linkName:'Login'},
-            {link:'/register', linkName:"Register"}
-        ]
-    }else if(isUserLoggedIn === true && isAdmin===true){
-        leftNavLink  = [
-            { link:'/view-request', linkName:'View Requests'},
-            { link:'/create-new-flight', linkName:'Create new Flight'},
-            { link:'/offers', linkName:'Offers'}
-        ]
-        rightNavLink = [
-            { link:'#', linkName:'username'},
-            {link:'/home', linkName:"Logout"}
-        ]
-    }else if(isUserLoggedIn === true && isAdmin===false){
-        leftNavLink  = [
-            { link:'/view-request', linkName:'View Bookings'},
-            { link:'/create-new-flight', linkName:'Book a Flight'},
-        ]
-        rightNavLink = [
-            { link:'#', linkName:'username'},
-            {link:'/home', linkName:"Logout"}
-        ]
-    }
-    return {
-        leftNavLink,
-        rightNavLink
-    }
+    return navBarSelector(store)
 }
 
-export default connect(mapStateToProps)(Navbar)
+export default React.memo(connect(mapStateToProps)(Navbar))

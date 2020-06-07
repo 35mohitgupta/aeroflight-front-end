@@ -8,3 +8,5 @@ Dependencies to be installed.
 4. redux
 5. react-redux
 6. redux-thunk
+7. npm install --save redux-devtools-extension
+8. reselect
