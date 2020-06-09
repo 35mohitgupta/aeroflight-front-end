@@ -1,26 +1,56 @@
-import {DISPLAY_REQUESTS, ACCEPT_BOOKING_REQUEST, REJECT_BOOKING_REQUEST} from '../actions/actionTypes'
+import {DISPLAY_REQUESTS_SUCCESS, ACCEPT_BOOKING_SUCCESS, REJECT_BOOKING_FAILURE, REJECT_BOOKING_SUCCESS, ACCEPT_BOOKING_FAILURE, DISPLAY_REQUESTS_FAILURE} from '../actions/actionTypes'
 import { requests } from '../state/requests'
 
 export const requestReducer = (state = requests ,action) => {
     let updateRequestList = null;
     switch(action.type){
-        case DISPLAY_REQUESTS:
+        case DISPLAY_REQUESTS_SUCCESS:
             return {...state, 
-                requestList: action.payload
+                requestList: action.payload,
+                failureMsg:''
             }
-        case ACCEPT_BOOKING_REQUEST:
-            updateRequestList = state.requestList.filter(request => request.bookingId !== action.bookingId)
+        case DISPLAY_REQUESTS_FAILURE:
+            return {
+                ...state,
+                failureMsg: action.message
+            }
+        case ACCEPT_BOOKING_SUCCESS:
+            updateRequestList = state.requestList.map(request => {
+                if(request.bookingId === action.bookingId){
+                    request.bookingStatus = 'ACCEPTED'
+                }
+                return request
+            })
             return {...state,
                 requestList: updateRequestList,
                 acceptMsg: action.message,
-                rejectMsg:''
+                rejectMsg:'',
+                failureMsg:''
             }
-        case REJECT_BOOKING_REQUEST:
-            updateRequestList = state.requestList.filter(request => request.bookingId !== action.bookingId)
+        case REJECT_BOOKING_SUCCESS:
+            updateRequestList = state.requestList.map(request => {
+                if(request.bookingId === action.bookingId){
+                    request.bookingStatus = 'REJECTED'
+                }
+                return request
+            })
             return {...state,
                 requestList: updateRequestList,
                 rejectMsg: action.message,
-                acceptMsg:''
+                acceptMsg:'',
+                failureMsg:''
+            }
+        case ACCEPT_BOOKING_FAILURE:
+            return {...state,
+                rejectMsg: '',
+                acceptMsg:'',
+                failureMsg:action.message
+            }
+        case REJECT_BOOKING_FAILURE:
+            return {...state,
+                rejectMsg: '',
+                acceptMsg:'',
+                failureMsg:action.message
             }
         default:
             return state

@@ -4,6 +4,7 @@ import Navbar from './presentational-component/Navbar';
 import {BrowserRouter,Route} from 'react-router-dom'
 import Home from './presentational-component/Home'
 import ViewRequests from './presentational-component/admin/ViewRequests';
+import CreateNewFlight from './presentational-component/admin/CreateNewFlight';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route exact path="/" component={Home}/>
       <Route path = "/home" component={Home}/>
       <Route path="/view-request" component={ViewRequests}/>
+      <Route path="/create-new-flight" component={CreateNewFlight}/>
     </div>
     </BrowserRouter>
   );
