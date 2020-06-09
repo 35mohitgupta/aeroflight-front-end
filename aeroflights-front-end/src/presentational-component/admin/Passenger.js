@@ -4,7 +4,7 @@ function Passenger(props) {
     const {name,age,gender} = props.pass
     console.log('passenger',name)
     return (
-        <div className="card container-fluid">
+        <div className="card container-fluid bg-light">
             <div className="row text-left"  style={{paddingTop:"1em"}}>
                 <div className="col-md-5">
                     <b>Name: &nbsp;</b> {name}

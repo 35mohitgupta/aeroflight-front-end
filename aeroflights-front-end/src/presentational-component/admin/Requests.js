@@ -1,17 +1,26 @@
 import React,{useState} from 'react'
 import Passenger from './Passenger'
-import { acceptRequest } from '../../actions/middleware/acceptRequest'
-import { rejectRequest } from '../../actions/middleware/rejectRequest'
+import { acceptRequestMW } from '../../actions/middleware/acceptRequestMW'
+import { rejectRequestMW } from '../../actions/middleware/rejectRequestMW'
 import {connect} from 'react-redux'
 
 const initialCardClass = "card container-fluid bg-light"
 
 function Requests(props) {
-    const {bookingId,flight,noOfTickets,offerApplied,passengerList,totalAmount,user} = props.request
+    const {bookingId,flight,noOfTickets,offerApplied,passengerList,totalAmount,user,bookingStatus} = props.request
     const [cardClass, setcardClass] = useState(initialCardClass)
     const [isExpanded, setisExpanded] = useState(false)
-    console.log('request',bookingId)
     
+    let statusVar = <div className="col-md-4 offset-md-1 text-right">
+        <button className="btn btn-info" onClick={()=> props.acceptRequest(bookingId)}>ACCEPT</button>&nbsp;&nbsp;
+        <button className="btn btn-info" onClick={()=> props.rejectRequest(bookingId)}>REJECT</button>
+    </div>
+
+    if(bookingStatus === 'ACCEPTED' || bookingStatus === 'REJECTED'){
+        statusVar = <div className="col-md-4 text-left">
+            <b>Booking Status:</b> &nbsp; {bookingStatus}
+        </div>
+    }
     return (
         <div className={cardClass} style={{paddingTop:"1em"}} 
             onMouseEnter = {() => {setcardClass("card container-fluid bg-muted"); console.log(user && user.username)}}
@@ -55,11 +64,8 @@ function Requests(props) {
                         </div>
                         <div className="col-md-3">
                             <b>Toal Amount:</b> &nbsp;  {totalAmount}
-                        </div>
-                        <div className="col-md-4 offset-md-1 text-right">
-                            <button className="btn btn-info" onClick={()=> props.acceptRequest(bookingId)}>ACCEPT</button>&nbsp;&nbsp;
-                            <button className="btn btn-info" onClick={()=> props.rejectRequest(bookingId)}>REJECT</button>
-                        </div>
+                        </div>                        
+                        {statusVar}
                     </div>
                 </React.Fragment>
             }
@@ -69,8 +75,8 @@ function Requests(props) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        acceptRequest : bookingId => dispatch(acceptRequest(bookingId)),
-        rejectRequest: bookingId => dispatch(rejectRequest(bookingId))
+        acceptRequest : bookingId => dispatch(acceptRequestMW(bookingId)),
+        rejectRequest: bookingId => dispatch(rejectRequestMW(bookingId))
     }
 }
 

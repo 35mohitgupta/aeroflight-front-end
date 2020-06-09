@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { navBarSelector } from '../selectors/navbarSelector.js'
+import {Link} from 'react-router-dom'
 
 function Navbar({leftNavLink, rightNavLink}) {
     console.log(leftNavLink,rightNavLink)
@@ -8,7 +9,7 @@ function Navbar({leftNavLink, rightNavLink}) {
         <div className="row">
             <div className="col-md-12">
                 <nav className="navbar navbar-expand-md bg-info navbar-dark">
-                    <a className="navbar-brand" href="/home">AeroFlights</a>
+                    <Link className="navbar-brand" to="/home">AeroFlights</Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -16,14 +17,14 @@ function Navbar({leftNavLink, rightNavLink}) {
                         <ul className="navbar-nav">
                             {leftNavLink!==[] && leftNavLink.map((links,index) => 
                             <li key={index} className="nav-item">
-                                   <a className='nav-link' href={links.link}>{links.linkName}</a>
+                                   <Link className='nav-link' to={links.link}>{links.linkName}</Link>
                             </li>
                             )}
                         </ul>
                         <ul className="navbar-nav ml-auto">
                             {rightNavLink!==[] && rightNavLink.map( (links,index) => 
                                 <li key={index} className="nav-item">
-                                    <a className='nav-link' href={links.link}>{links.linkName}</a>
+                                    <Link className='nav-link' to={links.link}>{links.linkName}</Link>
                                 </li>
                             )}
                         </ul>
