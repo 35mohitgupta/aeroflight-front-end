@@ -53,7 +53,7 @@ function CreateNewFlight({createFlightProp,errorMessage,successMessage}) {
         <div className="row">
             <div className="col-md-4 offset-md-4">
                 <div className="card">
-                    <div className="card-header bg-info">
+                    <div className="card-header bg-info text-light">
                         <h3>Create New Flight</h3>
                     </div>
                     <div className="card-body text-left">
