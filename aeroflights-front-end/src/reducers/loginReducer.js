@@ -1,9 +1,12 @@
 import { userLoginStatus } from "../state/userloginstate";
 
-export const loginReducer = (state=userLoginStatus,action) => {
+const loginReducer = (state=userLoginStatus,action) => {
 
     switch(action.type){
+        case 'login':
+            return action.payload;
         default:
             return state;
     }
 }
+export default loginReducer;

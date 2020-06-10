@@ -1,6 +1,8 @@
-const loginUser = () => {
+const user={firstname,lastname};
+
+export const loginUser = () => {
     return {
         type: "login",
-        payload: 'some data'
+        payload: 'user'
     }
 }
