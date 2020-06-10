@@ -40,7 +40,7 @@ function ViewRequests({requests,fetchRequests,acceptMsg,rejectMsg,requestFailed}
     const [sortParam, setsortParam] = useState("Sort By")
     useEffect(() => {
         fetchRequests()
-    }, [])
+    }, [fetchRequests])
 
     return (
         <div className="row">
@@ -48,8 +48,8 @@ function ViewRequests({requests,fetchRequests,acceptMsg,rejectMsg,requestFailed}
                 <div className="card">
                     <div className="card-header bg-info container-fluid">
                         <div className="card-title text-light row">
-                            <div className="col-md-5 text-left"><h3>REQUESTS {filter}...</h3></div>
-                            <div  className="col-md-2 offset-md-3 text-right" >
+                            <div className="col-md-6 text-left"><h3>REQUESTS {filter}...</h3></div>
+                            <div  className="col-md-2 offset-md-2 text-right" >
                                 <select name="filter" value={filter} onChange = {(event) => setFilter(event.target.value)} className="form-control">
                                     <option value="PENDING">Pending</option>
                                     <option  value="ACCEPTED">Accepted</option>

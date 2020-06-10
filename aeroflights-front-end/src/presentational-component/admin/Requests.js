@@ -23,7 +23,7 @@ function Requests(props) {
     }
     return (
         <div className={cardClass} style={{paddingTop:"1em"}} 
-            onMouseEnter = {() => {setcardClass("card container-fluid bg-muted"); console.log(user && user.username)}}
+            onMouseEnter = {() => {setcardClass("card container-fluid bg-muted")}}
             onMouseLeave = {() => {setcardClass(initialCardClass); setisExpanded(false)}}
             onClick = {() => setisExpanded(true)}>
             <div className="row text-left">

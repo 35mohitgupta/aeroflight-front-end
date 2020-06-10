@@ -5,6 +5,7 @@ import {BrowserRouter,Route} from 'react-router-dom'
 import Home from './presentational-component/Home'
 import ViewRequests from './presentational-component/admin/ViewRequests';
 import CreateNewFlight from './presentational-component/admin/CreateNewFlight';
+import Offers from './presentational-component/admin/Offers';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path = "/home" component={Home}/>
       <Route path="/view-request" component={ViewRequests}/>
       <Route path="/create-new-flight" component={CreateNewFlight}/>
+      <Route path="/offers" component={Offers}/>
     </div>
     </BrowserRouter>
   );
