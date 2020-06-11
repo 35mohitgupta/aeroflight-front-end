@@ -1,5 +1,5 @@
 # aeroflight-front-end
-Front end for AeroFlight Project
+Front-end for AeroFlight Project
 
 Dependencies to be installed.
 1. bootstrap
