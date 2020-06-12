@@ -1,4 +1,5 @@
 export const userLoginStatus = {
     isUserLoggedIn: true,
-    isAdmin: true,
+    isAdmin: false,
+    username: 'JohnWreck'
 }
