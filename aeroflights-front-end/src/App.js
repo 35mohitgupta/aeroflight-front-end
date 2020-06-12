@@ -6,6 +6,7 @@ import Home from './presentational-component/Home'
 import ViewRequests from './presentational-component/admin/ViewRequests';
 import CreateNewFlight from './presentational-component/admin/CreateNewFlight';
 import Offers from './presentational-component/admin/Offers';
+import ViewBookings from './presentational-component/user/ViewBookings';
 
 function App() {
   return (
@@ -14,9 +15,10 @@ function App() {
       <Navbar/>
       <Route exact path="/" component={Home}/>
       <Route path = "/home" component={Home}/>
-      <Route path="/view-request" component={ViewRequests}/>
+      <Route path="/view-requests" component={ViewRequests}/>
       <Route path="/create-new-flight" component={CreateNewFlight}/>
       <Route path="/offers" component={Offers}/>
+      <Route path="/view-bookings" component={ViewBookings}/>
     </div>
     </BrowserRouter>
   );
