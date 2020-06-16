@@ -15,7 +15,7 @@ function CreateNewFlight({createFlightProp,errorMessage,successMessage}) {
 
     const btnDisableRef = useRef(true)
 
-    useEffect((prev) => {
+    useEffect(() => {
         const arrivalTime = new Date(arrival)
         const departureTime = new Date(departure)
         if(arrivalTime<departureTime){
