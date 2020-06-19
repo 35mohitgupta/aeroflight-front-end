@@ -2,7 +2,7 @@ import {createSelector} from 'reselect'
 
 const loginStatusSelector = state => state.loginStatus.isUserLoggedIn
 const isAdminSelector = state => state.loginStatus.isAdmin
-const usernameSelector = state => state.loginStatus.username
+const usernameSelector = state => state.loginStatus.user.username
 
 export const navBarSelector = createSelector(
     loginStatusSelector,

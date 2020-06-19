@@ -2,7 +2,6 @@ import React from 'react'
 
 function Passenger(props) {
     const {name,age,gender} = props.pass
-    console.log('passenger',name)
     return (
         <div className="card container-fluid bg-light">
             <div className="row text-left"  style={{paddingTop:"1em"}}>

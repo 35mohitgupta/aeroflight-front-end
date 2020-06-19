@@ -7,6 +7,8 @@ import ViewRequests from './presentational-component/admin/ViewRequests';
 import CreateNewFlight from './presentational-component/admin/CreateNewFlight';
 import Offers from './presentational-component/admin/Offers';
 import ViewBookings from './presentational-component/user/ViewBookings';
+import BookAFlight from './presentational-component/user/BookAFlight';
+import BookingFinal from './presentational-component/user/BookingFinal';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
       <Route path="/create-new-flight" component={CreateNewFlight}/>
       <Route path="/offers" component={Offers}/>
       <Route path="/view-bookings" component={ViewBookings}/>
+      <Route path="/book-flight" component={BookAFlight}/>
+      <Route path="/final-book/:flightNo"component={BookingFinal}/>
     </div>
     </BrowserRouter>
   );

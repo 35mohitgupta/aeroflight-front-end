@@ -4,7 +4,6 @@ import { navBarSelector } from '../selectors/navbarSelector.js'
 import {Link} from 'react-router-dom'
 
 function Navbar({leftNavLink, rightNavLink}) {
-    console.log(leftNavLink,rightNavLink)
     return (
         <div className="row">
             <div className="col-md-12">

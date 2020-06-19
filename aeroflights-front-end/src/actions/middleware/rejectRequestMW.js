@@ -6,7 +6,6 @@ export const rejectRequestMW = (bookingId) => {
     return  dispatch => {
         axios.put('http://localhost:8600/admin/reject-request/'+bookingId)
         .then(response => {
-            console.log('action request',response.data,bookingId)
             dispatch(rejectRequest({bookingId: bookingId, message:response.data,requestStatus: REQUEST_STATUS.SUCCESS}))
         })
         .catch(err => {

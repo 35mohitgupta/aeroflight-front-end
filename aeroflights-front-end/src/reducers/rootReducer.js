@@ -4,11 +4,13 @@ import { requestReducer } from './requestReducer'
 import { createFlightReducer } from './createFlightReducer'
 import { offerReducer } from './offerReducer'
 import {bookingReducer} from './bookingReducer'
+import { bookFlightReducer } from './bookFlightReducer'
 
 export const rootReducer = combineReducers({
     loginStatus: loginReducer,
     requests: requestReducer,
     createFlight: createFlightReducer,
     offer: offerReducer,
-    bookings: bookingReducer
+    bookings: bookingReducer,
+    flightSearch: bookFlightReducer
 })
