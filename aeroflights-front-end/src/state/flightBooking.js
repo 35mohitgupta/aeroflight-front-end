@@ -1,5 +1,8 @@
 export const flightBooking = {
     searchedFlight:[],
     currentOffer:[],
-    searchErr:''
+    searchErr:'',
+    currentOfferErr:'',
+    bookingSuccess:'',
+    bookingFailure:''
 }

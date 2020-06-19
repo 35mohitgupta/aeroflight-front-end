@@ -6,10 +6,9 @@ export const fetchRequests = () =>  {
     return function(dispatch){
         axios.get("http://localhost:8600/admin/view-requests")
         .then(response => {
-            console.log(response.data)
             dispatch(displayRequests({requests: response.data,requestStatus: REQUEST_STATUS.SUCCESS}))
         })
-        .catch(err => {console.log('err',err)
+        .catch(err => {
             dispatch(displayRequests({message: err.message,requestStatus: REQUEST_STATUS.FAILED}))
         })
     }

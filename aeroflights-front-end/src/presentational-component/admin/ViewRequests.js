@@ -35,7 +35,6 @@ function sortBy(sortParam){
 
 function ViewRequests({requests,fetchRequests,acceptMsg,rejectMsg,requestFailed}) {
 
-    console.log('request rerender')
     const [filter, setFilter] = useState("PENDING")
     const [sortParam, setsortParam] = useState("Sort By")
     useEffect(() => {
@@ -57,7 +56,7 @@ function ViewRequests({requests,fetchRequests,acceptMsg,rejectMsg,requestFailed}
                                 </select>
                             </div>
                             <div  className="col-md-2 text-right" >
-                                <select name="sort" value={sortParam} onChange = {(event) =>{ setsortParam(event.target.value); console.log(sortParam)}} className="form-control">
+                                <select name="sort" value={sortParam} onChange = {(event) =>{ setsortParam(event.target.value)}} className="form-control">
                                     <option>Sort BY</option>
                                     <option value="username">Username</option>
                                     <option value="departure">Departure</option>

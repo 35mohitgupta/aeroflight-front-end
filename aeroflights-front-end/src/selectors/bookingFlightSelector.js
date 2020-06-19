@@ -7,7 +7,6 @@ export const bookFlightSelector = createSelector(
     (_,flightNo) => flightNo,
     (flights,flightNo) => {
         const selectedFlight = flights.filter(flight => flightNo === flight.flightNo)
-        console.log('selector',selectedFlight,flightNo)
         return selectedFlight[0]
     }
 )

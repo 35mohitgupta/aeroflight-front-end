@@ -92,7 +92,7 @@ function ViewBookings({bookings,fetchBookings,username,failureMsg}) {
 const mapStateToProps = state => {
     return {
         failureMsg: state.bookings.failureMsg,
-        username: state.loginStatus.username,
+        username: state.loginStatus.user.username,
         bookings: state.bookings.bookingList
     }
 }

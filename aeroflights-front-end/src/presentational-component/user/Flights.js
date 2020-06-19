@@ -7,7 +7,7 @@ function Flights({flight}) {
     const {flightNo,source,destination,departure,arrival,price}=flight
     const [cardClass, setcardClass] = useState(initialCardClass)
     const [isExpanded, setisExpanded] = useState(false)
-    console.log('flightNo', flightNo)
+
     const history = useHistory()
     return (
         <div className={cardClass} style={{paddingTop:"1em"}} 
@@ -40,7 +40,7 @@ function Flights({flight}) {
                     </div>
                     <div className="row text-left">
                         <div className="col-md-6 offset-md-3">
-                            <button className="btn btn-block btn-info" onClick={e=> {console.log('flight',flightNo); history.replace('/final-book/'+flightNo)}}>Book this Flight</button>
+                            <button className="btn btn-block btn-info" onClick={e=> history.push('/final-book/'+flightNo)}>Book this Flight</button>
                         </div>
                     </div>
                 </>
