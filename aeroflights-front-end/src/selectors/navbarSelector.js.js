@@ -2,7 +2,18 @@ import {createSelector} from 'reselect'
 
 const loginStatusSelector = state => state.loginStatus.isUserLoggedIn
 const isAdminSelector = state => state.loginStatus.isAdmin
-const usernameSelector = state => state.loginStatus.user.username
+
+const usernameSelector = createSelector(
+    state => state,
+    isAdminSelector,
+    (state,isAdmin) => {
+        if(isAdmin){
+            return state.loginStatus.admin.username;
+        }else{
+            return state.loginStatus.user.username;
+        }
+    }
+)
 
 export const navBarSelector = createSelector(
     loginStatusSelector,

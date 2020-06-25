@@ -2,5 +2,7 @@ export const requests = {
     requestList: [],
     acceptMsg: "",
     rejectMsg:"",
-    failureMsg:''
+    failureMsg:'',
+    noPendingRequests:'',
+    noPendingRequestsErr:''
 }
