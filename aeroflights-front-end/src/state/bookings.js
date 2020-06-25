@@ -1,5 +1,7 @@
 export const bookings = {
     bookingList: [],
     cancelMsg:"",
-    failureMsg:''
+    failureMsg:'',
+    noPendingBookings:'',
+    noPendingBookingsErr:''
 }

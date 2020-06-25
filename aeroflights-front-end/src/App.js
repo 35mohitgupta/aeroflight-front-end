@@ -9,6 +9,8 @@ import Offers from './presentational-component/admin/Offers';
 import ViewBookings from './presentational-component/user/ViewBookings';
 import BookAFlight from './presentational-component/user/BookAFlight';
 import BookingFinal from './presentational-component/user/BookingFinal';
+import AdminDashboard from './presentational-component/admin/AdminDashboard';
+import UserDashboard from './presentational-component/user/UserDashboard';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
       <Route path="/view-bookings" component={ViewBookings}/>
       <Route path="/book-flight" component={BookAFlight}/>
       <Route path="/final-book/:flightNo"component={BookingFinal}/>
+      <Route path="/admin" component={AdminDashboard}/>
+      <Route path="/user" component={UserDashboard}/>
     </div>
     </BrowserRouter>
   );
